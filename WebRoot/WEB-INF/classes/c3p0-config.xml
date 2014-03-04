@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+c3p0-config.xml
+private static ComboPooledDataSource ds;
+static{
+	try {
+		ds = new ComboPooledDataSource("mysql"); //named-config name="mysql"
+	} catch (Exception e) {
+		throw new ExceptionInInitializerError(e);
+	}
+}
+这个xml文件要放在src下
+ -->
+
+<c3p0-config>
+	<default-config>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:9999/bookstoreonline</property>
+		<property name="user">root</property>
+		<property name="password">1234</property>		
+		<property name="acquireIncrement">5</property>
+		<property name="initialPoolSize">10</property>
+		<property name="minPoolSize">5</property>
+		<property name="maxPoolSize">30</property>				
+	</default-config>
+
+	<named-config name="mysql">
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:9999/bookstoreonline</property>
+		<property name="user">root</property>
+		<property name="password">1234</property>
+		<property name="acquireIncrement">5</property>
+		<property name="initialPoolSize">20</property>
+		<property name="minPoolSize">5</property>
+		<property name="maxPoolSize">30</property><!-- intergalactoApp adopts a different approach to configuring statement caching -->
+	</named-config>
+</c3p0-config>
+
